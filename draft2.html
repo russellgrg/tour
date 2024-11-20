@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Explore Bhutan - Bhutan Travels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('beautiful-background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            background-color: rgb(40, 42, 42);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+        section {
+            display: none;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        section.active {
+            display: block;
+        }
+        .image-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .image-container img {
+            width: 450px;
+            height: 300px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+        #places img {
+    width: 100%;         /* Makes the images responsive */
+    max-width: 500px;    /* Limits the maximum width of the images */
+    height: auto;        /* Keeps the aspect ratio intact */
+    margin-bottom: 10px; /* Adds space below the images */
+    display: block;      
+    margin-left: left ;  
+    margin-right: none;  
+} 
+        footer {
+            background-color: rgb(40, 42, 42);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .hover-box {
+            padding: 15px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .hover-box:hover {
+            background-color: rgba(19, 128, 230, 0.2);
+        }
+        .animated-counter {
+            display: inline-block;
+            font-size: 2em;
+            color: #880eab;
+        }
+        .testimonial-slider {
+            overflow: hidden;
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .testimonial-slide {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        .testimonial-slide.active {
+            display: block;
+        }
+        .gallery img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .map-embed {
+            width: 100%;
+            height: 300px;
+            border: none;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .cta-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #880eab;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: rgba(86, 19, 230, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <header style="background-color: rgba(19, 128, 230, 0.8); color: white; padding: 20px; text-align: center;">
+        <h1>WELCOME TO BHUTAN TRAVELS</h1>
+        <p>DISCOVER THE GEMS AND WONDERS WITH US!</p>
+    </header>
+ 
+    <nav>
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('about')">About</a>
+        <a onclick="showSection('packages')">Packages</a>
+        <a onclick="showSection('places')">Top Places</a>
+        <a onclick="showSection('gallery')">Gallery</a>
+        <a onclick="showSection('testimonials')">Testimonials</a>
+        <a onclick="showSection('contact')">Contact</a>
+    </nav>
+
+<section id="home" class="active">
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <div style="flex: 1;">
+            <h2>Welcome to Bhutan Travels</h2>
+            <p>
+                Experience the unparalleled beauty and vibrant culture of Bhutan. Join us for an adventure that promises breathtaking views, serene monasteries, and a deep connection with nature.
+            </p>
+            <p>
+                Our tailored travel experiences are designed to immerse you in the wonders of Bhutan, whether you are a nature enthusiast, culture lover, or adventure seeker. Discover the magic that awaits!
+            </p>
+            <a href="#packages" class="cta-button">Explore Our Packages</a>
+        </div>
+        
+        <div style="flex: 2; display: flex; justify-content: center; overflow: hidden; position: relative; width: 100%; max-width: 900px; height: 500px;">
+            <div class="image-slider" style="display: flex; transition: transform 0.5s ease-in-out;">
+                <img src="monks.jpg" alt="Scenic Bhutan" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="gathering.jpg" alt="Bhutan Festival" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="Bhutan.jpeg" alt="Mountain Views" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            </div>
+            <button class="prev" onclick="moveSlide(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px; border: none; cursor: pointer;">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px; border: none; cursor: pointer;">&#10095;</button>
+        </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 20px; margin-top: 40px;">
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <img src="mountains.jpg" alt="Bhutan Landscape" style="width: 100%; max-width: 400px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <img src="girls.jpg" alt="Bhutan Culture" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        </div>
+        
+        <div style="flex: 1;">
+            <h3>Discover the Magic of Bhutan</h3>
+            <p>
+                Bhutan is not just a country; it's an experience like no other. Known for its untouched natural beauty, mystical monasteries, and vibrant festivals, Bhutan is the perfect destination for those seeking peace and tranquility, as well as an adventure through its lush valleys and rugged mountains. 
+            </p>
+            <p>
+                Bhutan’s unique culture, rooted in the teachings of Buddhism, is complemented by a deep respect for nature and the environment. Our trips are designed to immerse you in this rich cultural heritage while exploring the pristine landscapes that make Bhutan truly exceptional.
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.image-slider img');
+
+    function moveSlide(direction) {
+        currentSlide += direction;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0; 
+        } else if (currentSlide < 0) {
+            currentSlide = slides.length - 1; 
+        }
+        updateSlider();
+    }
+
+    function updateSlider() {
+        const slider = document.querySelector('.image-slider');
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    setInterval(() => {
+        moveSlide(1);
+    }, 3000);
+</script>
+    <section id="about">
+        <h2>About Bhutan Travels</h2>
+        <p>Bhutan Travels is dedicated to providing authentic and enriching travel experiences that allow you to explore Bhutan's culture, heritage, and natural beauty.</p>
+        <p>Founded by a team passionate about sustainable tourism, we ensure that each journey is not only enjoyable but also supports local communities and environmental conservation.</p>
+        <div class="image-container">
+            <img src="about-image1.jpg" alt="Team of Bhutan Travels">
+            <img src="Jakar-Festival.jpg" alt="Traditional Bhutanese Dance">
+        </div>
+        <div class="animated-counter" id="counter-trips">0+</div> Trips Completed
+        <script>
+            let counter = 0;
+            const counterElement = document.getElementById('counter-trips');
+            const interval = setInterval(() => {
+                counter += 10;
+                if (counter >= 1000) {
+                    counter = 1000;
+                    clearInterval(interval);
+                }
+                counterElement.textContent = counter + '+';
+            }, 50);
+        </script>
+    </section>
+
+    <section id="packages">
+        <h2>Our Travel Packages</h2>
+        <div class="package hover-box">
+            <h3>Basic Adventure Trekking Package - $1,500</h3>
+            <img src="adventure-trekking.jpg" alt="Trekking in Bhutan">
+            <p>Embark on a 5-day adventure through the pristine Himalayan trails. Includes basic lodging, guided treks, and traditional meals.</p>
+            <p><strong>Visa Information:</strong> Special rates for Indian citizens; standard visa processing for foreigners.</p>
+            <button class="cta-button">Book Now</button>
+        </div>
+        <div class="package hover-box">
+            <h3>Cultural Exploration Package - $3,000</h3>
+            <img src="cultural-tour.jpg" alt="Cultural Tour in Bhutan">
+            <p>A 7-day journey exploring Bhutan’s rich cultural sites. Stay in mid-range hotels and experience guided cultural tours.</p>
+            <p><strong>Visa Information:</strong> Indian visitors can travel without a visa; international visitors require a pre-arranged visa.</p>
+            <button class="cta-button">Book Now</button>
+        </div>
+        <div class="package hover-box">
+            <h3>Luxury Royal Experience - $5,500</h3>
+            <img src="luxury-stay.jpg" alt="Luxury Stay in Bhutan">
+            <p>Experience Bhutan like royalty with luxury accommodations, private guides, and exclusive cultural experiences over 10 days.</p>
+            <p><strong>Visa Information:</strong> Premium visa processing available for an effortless experience.</p>
+            <button class="cta-button">Book Now</button>
+        </div>
+    </section>
+
+    <section id="places">
+        <h2>Top Places to Visit</h2>
+        <div class="hover-box">
+            <h3>Paro Taktsang (Tiger’s Nest Monastery)</h3>
+            <img src="tigers-nest-in-paro.jpg" alt="Tiger's Nest Monastery">
+            <p>One of Bhutan’s most iconic landmarks, dramatically perched on a cliff 3,000 meters above sea level. Built in 1692, it is said to be the site where Guru Rinpoche, who introduced Buddhism to Bhutan, meditated in the 8th century.
+                The complex includes four main temples and several smaller ones, connected by pathways carved into the rock, offering breathtaking views of the Paro Valley.
+                It is an important pilgrimage site that symbolizes Bhutan’s spiritual heritage.</p>
+        </div>
+        <div class="hover-box">
+            <h3>Punakha Dzong</h3>
+            <img src="bhutan-punakha-dzong-river.jpg" alt="Punakha Dzong">
+            <p>Also known as the “Palace of Great Happiness,” is the second oldest and one of the most beautiful dzongs in Bhutan.
+            Situated at the confluence of the Pho Chhu and Mo Chhu rivers, it boasts intricate architecture and is surrounded by lush jacaranda trees that bloom in the spring. 
+            This dzong has played a key role in Bhutanese history, serving as the venue for royal events and being the winter residence of the central monastic body.</p>
+
+        </div>
+        <div class="hover-box">
+            <h3>Thimphu’s Weekend Market</h3>
+            <img src="Craft-Bazaar-Thimphu.png" alt="Thimphu Market">
+            <p>Open from Friday to Sunday, the market is where locals gather to buy and sell a variety of goods, including fresh produce, handicrafts, spices, and traditional clothing.
+                It is not only a place to shop but also an opportunity to interact with friendly vendors and immerse yourself in the daily life of Thimphu residents.</p>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="padd-field-thimpu-bhutan.jpg" alt="Scenic View" width="500">
+            <img src="Thimphu.-tshechujpg.webp" alt="Bhutan Festival" width="460">
+            <img src="yak.jpeg" alt="Mountain View" width="500">
+        </div>
+    </section>
+
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <h2>What Our Visitors Say</h2>
+        <div class="testimonial-container" style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+    
+            <div class="testimonial" style="flex: 1 1 30%; min-width: 250px; max-width: 350px; text-align: center; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                <img src="testimonial-photo1.jpg" alt="John Doe" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+                <h3>John Doe</h3>
+                <p>"Bhutan has truly been an unforgettable experience! The natural beauty and peaceful atmosphere were exactly what I was looking for. Highly recommend!"</p>
+            </div>
+            
+            <div class="testimonial" style="flex: 1 1 30%; min-width: 250px; max-width: 350px; text-align: center; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                <img src="testimonial-photo2.jpg" alt="Emma Smith" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+                <h3>Emma Smith</h3>
+                <p>"The cultural immersion was incredible! I learned so much about Bhutanese traditions and made lifelong memories. Will definitely come back!"</p>
+            </div>
+
+            <div class="testimonial" style="flex: 1 1 30%; min-width: 250px; max-width: 350px; text-align: center; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                <img src="testimonial-photo3.jpg" alt="Michael Lee" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+                <h3>Michael Lee</h3>
+                <p>"Bhutan was a perfect blend of adventure and serenity. The hikes were breathtaking, and the monasteries were so peaceful. A must-visit destination!"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: bhutantravels@gmail.com</p>
+        <p>Phone: +975-1780-9056</p>
+        <p>Address: Thimphu, Bhutan</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18..." class="map-embed"></iframe>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Bhutan Travels. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
